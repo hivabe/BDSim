@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>converter</title>
+<style>
+	body {
+		background-color: linen;
+	}
+</style>
+<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<button id="run" onclick="doStart()">Go!</button>
+
+<hr />
+<table>
+	<tr>
+	<td>
+		<table class="char">
+		<tr>
+			<td>char1</td>
+			<td>
+				<select class="char_select">
+					<option value=1 selected>白劍</option>
+					<option value=2>法坦</option>
+				</select>
+			</td>
+
+		<tr><td>ATK:</td>		<td><input type="text" id="ATK"></input></td></tr>
+		<tr><td>HP:</td>		<td><input type="text" id="HP"></input></td></tr>
+		<tr><td>DEF:</td>		<td><input type="text" id="DEF"></input></td></tr>
+		<tr><td>CRI_RATE:</td>	<td><input type="text" id="CRI_RATE"></input></td></tr>
+		<tr><td>CRI_DMG	:</td>	<td><input type="text" id="CRI_DMG"></input></td></tr>
+		<tr><td>AGI:</td>		<td><input type="text" id="AGI"></input></td></tr>
+		</table>
+	</td>
+	<td>
+		---- vs ----
+	</td>
+	<td>
+		<table class="char">
+		<tr>
+			<td>char2</td>
+			<td>
+				<select class="char_select">
+					<option value=1 selected>白劍</option>
+					<option value=2>法坦</option>
+				</select>
+			</td>
+
+		<tr><td>ATK:</td>		<td><input type="text" id="ATK"></input></td></tr>
+		<tr><td>HP:</td>		<td><input type="text" id="HP"></input></td></tr>
+		<tr><td>DEF:</td>		<td><input type="text" id="DEF"></input></td></tr>
+		<tr><td>CRI_RATE:</td>	<td><input type="text" id="CRI_RATE"></input></td></tr>
+		<tr><td>CRI_DMG	:</td>	<td><input type="text" id="CRI_DMG"></input></td></tr>
+		<tr><td>AGI:</td>		<td><input type="text" id="AGI"></input></td></tr>
+		</table>
+	</td></tr>
+</table>
+</body>
+
+<script>
+var char1 = {
+	"name":"白劍",
+	"basic_status":{
+			"ATK"		:2002,
+			"HP"		:5539,
+			"DEF"		:10,
+			"CRI_RATE"	:14.8,
+			"CRI_DMG"	:50,
+			"AGI"		:0,
+	},
+	"skills":["SKILL_1","SKILL_2","SKILL_3"],
+};
+
+$('select').on('focus', function() {
+	this.selectedIndex = -1;
+});
+
+$('.char').on('change', function() {
+	console.log($(this).find("option:selected").val());
+});
+
+</script>
+
+</html>
